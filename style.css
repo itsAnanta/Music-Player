@@ -1,0 +1,216 @@
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: #fff;
+        }
+
+        .container 
+        {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1000px;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .song-list-container
+        {
+            background: rgba(0, 0, 0, 0);
+            padding: 20px;
+            border-radius: 15px;
+            width: 250px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .song-list-container h3
+        {
+            margin: 0 0 15px;
+            text-align: center;
+        }
+
+        .player-container 
+        {
+            position: relative;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.5s;
+            max-width: 300px; 
+            width: 100%;
+        }
+
+
+        .player-container:hover {
+            transform: scale(1.1);
+        }
+
+        .cover img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            transition: transform 0.2s;
+            transition: transform 0.5s linear;
+        }
+
+        .cover img:hover {
+            transform: scale(1.02);
+        }
+
+        .cover img.rotating {
+            animation: rotation 2s infinite linear;
+        }
+
+        @keyframes rotation {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .info {
+            margin-bottom: 20px;
+        }
+
+        .info h2.large-text
+        {
+            margin: 5px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            /* Text scrolling effect */
+            overflow: hidden;
+            white-space: nowrap;
+            /*animation: marquee 10s linear infinite;*/
+        }
+
+        /*@keyframes marquee 
+        {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
+        }*/
+
+        .info h3 {
+            margin: 5px 0;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .btn:hover {
+            transform: scale(1.2);
+        }
+
+        .progress-container {
+            width: 100%;
+            background: #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .progress {
+            width: 0;
+            height: 5px;
+            background: #6a11cb;
+            border-radius: 5px;
+            transition: width 0.1s;
+        }
+
+        input[type="file"] {
+            display: flex;
+        }
+
+        .custom-file-upload {
+            display: inline-block;
+            padding: 10px 20px;
+            cursor: pointer;
+            border: 2px solid #6a11cb;
+            border-radius: 5px;
+            background-color: #6a11cb;
+            color: #fff;
+            font-size: 16px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .custom-file-upload:hover {
+            background-color: #2575fc;
+            border-color: #2575fc;
+        }
+
+        .song-list-container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 15px;
+            width: 250px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .song-list-container h3 {
+            margin: 0 0 15px;
+            text-align: center;
+        }
+
+        #song-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #song-list li {
+            padding: 10px;
+            margin: 5px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        #song-list li:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .highlighted
+        {
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        .delete-btn
+        {
+            background: transparent;
+            border: none;
+            color: ff4c4c;
+            font-size: 18px;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: color 0.3s;
+        }
+
+        .delete-btn:hover
+        {
+            color: #ff1c1c;
+        }

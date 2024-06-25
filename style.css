@@ -54,7 +54,7 @@
 
         .cover img {
             width: 100%;
-            max-width: 300px;
+            max-width: 200px;
             border-radius: 50%;
             margin-bottom: 20px;
             transition: transform 0.2s;

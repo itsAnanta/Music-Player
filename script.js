@@ -1,4 +1,4 @@
-const playBtn = document.getElementById('play');
+    const playBtn = document.getElementById('play');
 const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
 const audio = document.getElementById('audio');
@@ -19,7 +19,7 @@ let isLooping = false;
 
 // Initially load song details into DOM
 function loadSong(song) {
-    //removing highlight from previously highlighted song
+    // Removing highlight from previously highlighted song
     const currentlyPlaying = document.querySelector('.highlighted');
     if(currentlyPlaying)
         currentlyPlaying.classList.remove('highlighted');
@@ -30,7 +30,13 @@ function loadSong(song) {
     title.innerText = song.displayName;
     artist.innerText = song.artist;
     audio.src = URL.createObjectURL(song.file);
-    //coverImg.src = song.cover || 'default-cover.jpg';
+
+    // Check for cover image and set it
+    if (song.cover) {
+        coverImg.src = song.cover;
+    } else {
+        coverImg.src = 'music-logo.png';
+    }
 }
 
 // Play song
@@ -39,8 +45,8 @@ function playSong() {
     playBtn.querySelector('i.fas').classList.add('fa-pause');
     audio.play();
 
-    //highlighting the current song playing
-    const soneItems = document.querySelectorAll('#song-list li');
+    // Highlighting the current song playing
+    const songItems = document.querySelectorAll('#song-list li');
     songItems[songIndex].classList.add('highlighted');
 }
 
@@ -94,7 +100,7 @@ fileInput.addEventListener('change', (e) => {
             file: file,
             displayName: file.name.split('.').slice(0, -1).join('.'),
             artist: 'Unknown Artist', // You can add functionality to extract artist name if metadata is available
-            cover: 'default-cover.jpg' // You can add functionality to extract cover if metadata is available
+            cover: 'music-logo.png' // You can add functionality to extract cover if metadata is available
         };
         songs.push(song);
         addSongToList(song, songs.length - 1);
@@ -108,9 +114,8 @@ fileInput.addEventListener('change', (e) => {
 function addSongToList(song, index) {
     const li = document.createElement('li');
     li.textContent = `${index + 1}. ${song.displayName}`;
-    //li.innerContent = song.displayName;
 
-    //create and add delete button
+    // Create and add delete button
     const deleteBtn = document.createElement('button');
     deleteBtn.classList.add('delete-btn');
     deleteBtn.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
@@ -129,7 +134,7 @@ function addSongToList(song, index) {
     songList.appendChild(li);
 }
 
-/// Function to delete a song
+// Function to delete a song
 function deleteSong(index) {
     // Remove song from the songs array
     songs.splice(index, 1);
